@@ -26,6 +26,7 @@ export default createStore({
     ],
     cart: [],
   },
+  //Mutation é Sincrona
   mutations: {
     storeUser(state, data) {
       console.log("mutations: ", data, state);
@@ -41,6 +42,20 @@ export default createStore({
       state.cart.splice(idx, 1);
     },
   },
-  getters: {},
-  actions: {},
+  getters: {
+    total(state) {
+      return state.cart.reduce((total, item) => (total += item.price), 0);
+    },
+  },
+  //Assincrona
+  actions: {
+    storeUser({ commit }, data) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve();
+          commit("storeUser", data);
+        }, 1000);
+      });
+    },
+  },
 });

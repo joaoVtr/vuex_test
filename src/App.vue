@@ -2,11 +2,11 @@
   <AppProducts />
   <div>
     <br />
-
     <button @click="updateUser()">Atualizar perfil</button>
-    <div>
-      <h5>Quantidade de itens {{ $store.state.cart.length }}</h5>
-    </div>
+  </div>
+  <br />
+  <div>
+    {{ $store.state.user.first_name }}
   </div>
 </template>
 
@@ -23,14 +23,17 @@ export default {
     return {};
   },
   methods: {
-    // updateUser() {
-    //   const newUser = {
-    //     first_name: "João2",
-    //     second_name: "vitor2",
-    //     email: "joao2@joao.com",
-    //   };
-    //   this.$store.commit("storeUser", newUser);
-    // },
+    updateUser() {
+      const newUser = {
+        first_name: "João2",
+        second_name: "vitor2",
+        email: "joao2@joao.com",
+      };
+      //   this.$store.commit("storeUser", newUser);
+      this.$store.dispatch("storeUser", newUser).then(() => {
+        console.log("sucesso");
+      });
+    },
   },
   created() {
     // console.log(this.$store.state.user.email);

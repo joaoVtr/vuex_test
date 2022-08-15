@@ -19,11 +19,8 @@ export default {
     inCard() {
       const id = this.product.id;
       var item = null;
-      if (this.$store.state.cart.length > 0) {
-        item = this.$store.state.cart.findIndex((item) => item.id === id);
-        return item > -1 ? true : false;
-      }
-      return false;
+      item = this.$store.state.cart.findIndex((item) => item.id === id);
+      return item > -1 ? true : false;
     },
   },
   methods: {
