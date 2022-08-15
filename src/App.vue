@@ -1,17 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <AppProducts />
+  <div>
+    <br />
+
+    <button @click="updateUser()">Atualizar perfil</button>
+    <div>
+      <h5>Quantidade de itens {{ $store.state.cart.length }}</h5>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppProducts from "./components/Products/AppProducts.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    AppProducts,
+  },
+
+  data() {
+    return {};
+  },
+  methods: {
+    // updateUser() {
+    //   const newUser = {
+    //     first_name: "João2",
+    //     second_name: "vitor2",
+    //     email: "joao2@joao.com",
+    //   };
+    //   this.$store.commit("storeUser", newUser);
+    // },
+  },
+  created() {
+    // console.log(this.$store.state.user.email);
+  },
+};
 </script>
 
 <style>
